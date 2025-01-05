@@ -28,5 +28,8 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return studentService.getAllStudent();
     }
-
+    @PatchMapping(value = "/editStudent/{id}")
+    public void updateStudent(@RequestBody Student student,@PathVariable("id") Integer id) throws Exception {
+        studentService.updateStudent(id,student);
+    }
 }
