@@ -1,5 +1,7 @@
 package com.krishantha.student_course.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -21,7 +23,7 @@ public class Student {
             joinColumns = @JoinColumn(name="student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
-    @JsonManagedReference
+    @JsonBackReference
     private Set<Course> courses=new HashSet<>();
 
 

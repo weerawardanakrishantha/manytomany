@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students/courses")
+@RequestMapping("/students/")
 public class StudentController {
     @Autowired
     private StudentService studentService;
@@ -19,12 +19,12 @@ public class StudentController {
     @Autowired
     private CourseService courseService;
 
-    @PostMapping("/")
+    @PostMapping(consumes = "application/json")
     public void saveStudent(@RequestBody Student student){
         studentService.saveStudent(student);
 
     }
-    @GetMapping("/")
+    @GetMapping(produces = "application/json")
     public List<Student> getAllStudents(){
         return studentService.getAllStudent();
     }

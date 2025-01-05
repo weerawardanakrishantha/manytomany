@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("courses/students")
+@RequestMapping("/courses/")
 public class CourseController {
     @Autowired
     CourseService courseService;
 
 
-    @PostMapping("/")
+    @PostMapping(consumes = "application/json")
     public void saveCourse(@RequestBody Course course){
         courseService.saveCourse(course);
     }
-    @GetMapping("/")
+    @GetMapping(produces = "application/json")
     public List<Course> getAllCourses(){
         return courseService.getAllCourses();
     }

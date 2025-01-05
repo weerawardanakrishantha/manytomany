@@ -12,8 +12,6 @@ import java.util.List;
 public class StudentService {
     @Autowired
     StudentRepository studentRepository;
-    @Autowired
-    CourseRepository courseRepository;
 
     public void saveStudent(Student student) {
         studentRepository.save(student);
