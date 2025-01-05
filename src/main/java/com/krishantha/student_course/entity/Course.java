@@ -1,6 +1,8 @@
 package com.krishantha.student_course.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -8,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="course_tbl")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +19,7 @@ public class Course {
     private double fee;
 
     @ManyToMany(mappedBy = "courses",cascade = CascadeType.ALL)
-    @JsonBackReference
+    //@JsonBackReference
     private Set<Student> students=new HashSet<>();
 
 
